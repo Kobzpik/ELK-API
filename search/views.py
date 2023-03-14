@@ -6,10 +6,8 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from elasticsearch import Elasticsearch
 
-
-
 # Create your views here.
-
+#connect elasticsearch and django
 es = Elasticsearch(['http://localhost:9200'])
 
 def test_elasticsearch(request):
