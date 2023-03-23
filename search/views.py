@@ -1,32 +1,41 @@
-from django.shortcuts import render
-import abc
+from django_elasticsearch_dsl_drf.constants import SUGGESTER_COMPLETION
+from django_elasticsearch_dsl_drf.filter_backends import SearchFilterBackend, FilteringFilterBackend, SuggesterFilterBackend
+from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
+from rest_framework import generics
 
-from django.http import HttpResponse
-from django.http import JsonResponse
-from rest_framework.response import Response
-from elasticsearch import Elasticsearch
-
-from rest_framework import viewsets,serializers
-from rest_framework.views import APIView
-from rest_framework.decorators import action
-from rest_framework.viewsets import ViewSet
-
-# Create your views here.
-#connect elasticsearch and django
-es = Elasticsearch(['http://localhost:9200'])
+from search.documents import SearchDocument
+from search.models import Search
+from search.serializers import SearchSerializer, SearchDocumentSerializer
 
 
-class ElasticsearchView(APIView):
-    
-    def get(self, request):
-    # Define a simple Elasticsearch search query
-        query = {"query": {"match_all": {}}}
-        
-        # Perform the search query against Elasticsearch
-        try:
-            response = es.search(index="logstash", body=query)
-        except Exception as e:
-            return Response({"status": "error", "message": str(e)}, status=400)
+class SearchView(generics.ListAPIView):
+    queryset = Search.objects.all()
+    serializer_class = SearchSerializer
 
-        return Response({"status": "success", "data": response})
-   
+
+class SearchDocumentView(DocumentViewSet):
+    document = SearchDocument
+    serializer_class = SearchDocumentSerializer
+
+    filter_backends = [
+        FilteringFilterBackend,
+        SearchFilterBackend,
+        SuggesterFilterBackend
+    ]
+
+    search_fields = (
+        'title',
+    )
+
+    filter_fields = {
+        'category': 'category.id'
+    }
+
+    suggester_fields = {
+        'title': {
+            'field': 'title.suggest',
+            'suggesters': [
+                SUGGESTER_COMPLETION,
+            ],
+        },
+    }
