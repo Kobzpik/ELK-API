@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     #own
     "search.apps.SearchConfig",
     'rest_framework',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
     
 ]
 
@@ -130,6 +132,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 25
+}
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'http://localhost:9200'
+    },
+}
+
+ELASTICSEARCH_INDEX_NAMES = {
+    'logs_index.search': 'logs_index',
 }
 
 
