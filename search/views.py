@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django_elasticsearch_dsl_drf.constants import SUGGESTER_COMPLETION
 from django_elasticsearch_dsl_drf.filter_backends import SearchFilterBackend, FilteringFilterBackend, SuggesterFilterBackend
 from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
@@ -6,6 +7,7 @@ from rest_framework import generics
 from search.documents import SearchDocument
 from search.models import Search
 from search.serializers import SearchSerializer, SearchDocumentSerializer
+import json
 
 
 class SearchView(generics.ListAPIView):
@@ -39,3 +41,9 @@ class SearchDocumentView(DocumentViewSet):
             ],
         },
     }
+
+
+
+
+def index(request):
+    return render(request, 'search/index_view.htm')

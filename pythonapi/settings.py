@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-hw6n5(3_vqr@%d_$%u3lyenv&kj$sqzo*019v0xv5!q9y-5nqm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_elasticsearch_dsl',
     'django_elasticsearch_dsl_drf',
+    'corsheaders',
     
 ]
 
@@ -54,6 +56,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    #own
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "pythonapi.urls"
