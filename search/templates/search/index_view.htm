@@ -38,12 +38,15 @@
             <br>
            
 
-            <h2>Student List</h2>
+            <h2>Logs List</h2>
             <table class="table table-hover">
                 <tr>
                     <th>Id</th>
-                    <th>Title Name</th>
-                    <th>Category Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Time Stamp</th>
+                    <th>Status</th>
+
 
                 </tr>
                 <tbody id="divBody"></tbody>
@@ -80,15 +83,18 @@
                     
 
                     var res = result.results
-                    console.log(res.length)
+                    console.log(res)
                     var totalCount = res.length;
 
                     var structureDiv = "";
                     for (let i = 0; i < totalCount; i++) {
                         structureDiv += "<tr>" +
-                            "     <td>" + i + "</td>" +
-                            "     <td>" + res[i].title + "</td>" +
-                            "     <td>" + res[i].category + "</td>" +
+                             "     <td>" + res[i].Sid + "</td>" +
+                             "     <td>" + res[i].From + "</td>" +
+                             "     <td>" + res[i].To + "</td>" +
+                             "     <td>" + res[i].SentDate + "</td>" +
+                             "     <td>" + res[i].Status + "</td>" +
+
                             "           </tr>";
                     }
 
