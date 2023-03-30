@@ -50,3 +50,6 @@ def index(request):
 
 def test(request):
     return render(request, 'search/index.htm')
+
+def tables(request):
+    return render(request, 'search/tables.htm')

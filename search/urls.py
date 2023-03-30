@@ -11,7 +11,8 @@ urlpatterns = [
     path('test/', SearchView.as_view()),
     #path('test1/', include(router.urls)),
     path('index/', views.index, name='index'),
-    path('index_test/', views.test, name='index_test')
+    path('index_test/', views.test, name='index_test'),
+    path('tables/', views.tables, name='tables')
     
 ]
 urlpatterns += router.urls

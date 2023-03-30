@@ -14,6 +14,7 @@
     <title>Dashboard</title>
 
     <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--Font Link-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -30,7 +31,10 @@
         rel="stylesheet">
 
     <!-- css-->
-    <link rel="stylesheet" href="{% static 'search/SB-admin-2.css' %}">
+    <link rel="stylesheet" href="{% static 'search/css/static.css' %}">
+
+    <!-- table plugin -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -69,7 +73,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                     <span>Components</span>
@@ -85,7 +89,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="#"  data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa fa-wrench" aria-hidden="true"></i>
                     <span>Utilities</span>
@@ -112,7 +116,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                <a class="nav-link collapsed" href="#"  data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fa fa-folder" aria-hidden="true"></i>
                     <span>Pages</span>
@@ -166,7 +170,7 @@
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
 
                     <!-- Topbar Search -->
@@ -177,7 +181,7 @@
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                    <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -190,7 +194,7 @@
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
+                                <i class="fa fa-search" aria-hidden="true"></i>
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
@@ -202,7 +206,7 @@
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
+                                                <i class="fa fa-search" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -214,7 +218,7 @@
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
+                                <i  class="fa fa-bell fa-lg" aria-hidden="true"></i>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
@@ -265,7 +269,7 @@
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
+                                <i class="fa fa-envelope fa-lg" aria-hidden="true" ></i>
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
@@ -333,9 +337,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Prabath Indrajith</span>
+                                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -370,9 +373,8 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">logs analysis</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download" aria-hidden="true"></i> Generate Report</a>
                     </div>
 
                     <!-- Content Row -->
@@ -385,11 +387,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Requests (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10,000</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fa fa-calendar-plus-o fa-2x" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -403,11 +405,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Requests (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">105,000</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -420,11 +422,11 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Overall Performance
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">75%</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -436,7 +438,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -450,11 +452,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
+                                                Encountering error</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -467,27 +469,147 @@
                     <div class="row">
 
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                    class="card-header py-3  flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Overview</h6>
                                 </div>
+                                    <!-- DataTales Example -->
+                        <div class="card-body">
+                                
+                      
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Time Stamp</th>
+                                            <th>Status</th>
+                                       
+                        
+                        
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Time Stamp</th>
+                                            <th>Status</th>
+                                    
+                        
+                        
+                        
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id="divBody">
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>22</td>
+                                            <td>2012/03/29</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>33</td>
+                                            <td>2008/11/28</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Brielle Williamson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>New York</td>
+                                            <td>61</td>
+                                            <td>2012/12/02</td>
+                                         
+                                        </tr>
+                                        <tr>
+                                            <td>Herrod Chandler</td>
+                                            <td>Sales Assistant</td>
+                                            <td>San Francisco</td>
+                                            <td>59</td>
+                                            <td>2012/08/06</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Rhona Davidson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>Tokyo</td>
+                                            <td>55</td>
+                                            <td>2010/10/14</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Herrod Chandler</td>
+                                            <td>Sales Assistant</td>
+                                            <td>San Francisco</td>
+                                            <td>59</td>
+                                            <td>2012/08/06</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Rhona Davidson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>Tokyo</td>
+                                            <td>55</td>
+                                            <td>2010/10/14</td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Herrod Chandler</td>
+                                            <td>Sales Assistant</td>
+                                            <td>San Francisco</td>
+                                            <td>59</td>
+                                            <td>2012/08/06</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Rhona Davidson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>Tokyo</td>
+                                            <td>55</td>
+                                            <td>2010/10/14</td>
+                                          
+                                        </tr>
+                                       
+                                        
+                                    </tbody>
+                                </table>
+                            </div> 
+
+                        </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
@@ -495,50 +617,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        
 
                     <!-- Content Row -->
                     <div class="row">
@@ -703,7 +783,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>&copy; 2023 kobzpik inc. All Right Reserved </span>
                     </div>
                 </div>
             </footer>
@@ -711,7 +791,7 @@
 
         </div>
         <!-- End of Content Wrapper -->
-
+        <h5>ddd</h5>
     </div>
     <!-- End of Page Wrapper -->
 
@@ -756,6 +836,69 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
+
+     
+     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+     <script>
+        $('#dataTable').DataTable();
+     </script>
+
+<script>
+    $(document).ready(function () {
+        BindStudents();
+    });
+
+    $('#btnSubmit').click(function () {
+
+        let idValue = $('#txtId').val();
+        let firstName = $('#txtFirstName').val();
+        let lastName = $('#txtLastName').val();
+        let DobValue = $('#txtDOB').val();
+
+        
+    });
+
+    function BindStudents() {
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: "http://127.0.0.1:8000/search/logs-search/", success: function (result) {
+               
+                
+
+                var res = result.results
+                console.log(res)
+                var totalCount = res.length;
+
+                var structureDiv = "";
+                for (let i = 0; i < totalCount; i++) {
+                    structureDiv += "<tr>" +
+                         "     <td>" + res[i].Sid + "</td>" +
+                         "     <td>" + res[i].From + "</td>" +
+                         "     <td>" + res[i].To + "</td>" +
+                         "     <td>" + res[i].SentDate + "</td>" +
+                         "     <td>" + res[i].Status + "</td>" +
+
+                        "           </tr>";
+                }
+
+                $("#divBody").html(structureDiv);
+          
+            }
+        });
+
+    }
+
+   
+</script>
 
 </body>
 
