@@ -47,3 +47,6 @@ class SearchDocumentView(DocumentViewSet):
 
 def index(request):
     return render(request, 'search/index_view.htm')
+
+def test(request):
+    return render(request, 'search/index.htm')
