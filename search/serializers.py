@@ -16,5 +16,17 @@ class SearchDocumentSerializer(DocumentSerializer):
         document = SearchDocument
 
         fields = (
-            
+            #"TimeStamp",
+            "From",
+            "To",
+            "Body",
+            "Status",
+            "SentDate",
+            "ApiVersion",
+            "NumSegments",
+            "AccountSid",
+            "Sid",
+            "Direction",
+            "Price",
+            "PriceUnit"
         )
