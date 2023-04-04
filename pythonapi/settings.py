@@ -140,7 +140,7 @@ REST_FRAMEWORK = {
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'http://localhost:9200'
+        'hosts': 'http://elk_elasticsearch_1:9200'
     },
 }
 
