@@ -1,0 +1,71 @@
+def img
+pipeline {
+   environment {
+        registry = "kobzpik/django-elk"
+        registryCredential = "docker-hub-login"
+        dockerImage = ''
+        
+    }
+    
+    agent any
+    
+    stages {
+        stage('build checkout') {
+            steps {
+                git branch:'main', url:'https://github.com/Kobzpik/ELK-API.git'
+                
+            }
+        }
+        
+        stage ('Stop previous running container'){
+            steps{
+                sh returnStatus: true, script: 'docker stop $(docker ps -a | grep ${JOB_NAME} | awk \'{print $1}\')'
+                sh returnStatus: true, script: 'docker rmi $(docker images | grep ${registry} | awk \'{print $3}\') --force' //this will delete all images
+                sh returnStatus: true, script: 'docker rm ${JOB_NAME}'
+            }
+        }
+        
+        
+       stage('Build Image') {
+            steps {
+                script {
+                    img = registry + ":${env.BUILD_ID}"
+                    println ("${img}")
+                    dockerImage = docker.build("${img}")
+                }
+            }
+        }
+        
+        stage('Testing - running in jenkins Node') {
+            steps {
+                sh "docker run -d --name ${JOB_NAME} -p 8000:8000 ${img}"
+            }
+            
+        }
+        
+        stage("Push to DockerHub") {
+            steps {
+                script {
+                    docker.withRegistry( 'https://registry.hub.docker.com' , registryCredential ) {
+                        dockerImage.push()
+                    }
+                
+                }
+            }
+        }
+        
+        stage("running in staging") {
+            steps {
+                script{
+                    def cmd = "docker run -d --name ${JOB_NAME} -p 8000:8000 ${img}"
+                    sshagent(['ssh-192.168.56.108']) {
+                        sh "ssh -o StrictHostKeyChecking=no root@192.168.56.108 ${cmd}"
+                        sh "ssh -o StrictHostKeyChecking=no root@192.168.56.108 whoami"
+                    }
+                    
+                
+                }
+            }
+        }
+    }
+}
